@@ -36,4 +36,4 @@ public class RoomManagerImpl extends java.rmi.server.UnicastRemoteObject impleme
     }
 }
     
-}
+
