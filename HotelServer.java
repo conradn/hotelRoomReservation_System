@@ -17,9 +17,12 @@ import java.rmi.registry.Registry;
 
 public class HotelServer {
      public static void main(String[] args) throws RemoteException{
+         
+        //registering to rmiregistry with port number 1090
+        
         try{
             Registry port = LocateRegistry.createRegistry(1090);
-            port.rebind("hello",new RoomManagerImpl());
+            port.rebind("hotel",new RoomManagerImpl());
         }catch (RemoteException e){
             System.out.println("Something is wrong:" + e);
         }
