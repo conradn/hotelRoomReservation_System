@@ -12,6 +12,7 @@ public class RoomManagerImpl extends java.rmi.server.UnicastRemoteObject impleme
         Room room = RoomManager.getRoom(roomName);
         room.removeGuest(guestName);
     }
+
     public void printRooms() throws RemoteException {
         for (Room room : RoomManager.getRooms()) {
             System.out.println(room.getName() + ": " + room.getGuests());
@@ -27,13 +28,14 @@ public class RoomManagerImpl extends java.rmi.server.UnicastRemoteObject impleme
             System.out.println(room.getName() + ": " + room.getRevenue());
         }
     }
+    
     public void printavailable() throws RemoteException {
         for (Room room : RoomManager.getRooms()) {
-            if (room.isAvailable()) {
-                System.out.println(room.getName());
-            }
+            System.out.println(room.getName() + ": " + room.getAvailable());
         }
     }
+   
+
+    
 }
     
-
