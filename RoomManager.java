@@ -5,34 +5,14 @@ import java.util.ArrayList;
 
 public interface RoomManager extends Remote {
 
-    /**
-     *
-     * @param room_type
-     * @return
-     * @throws RemoteException
-     */
-    public String available_rooms(String room_type) throws RemoteException;
+   
+    public String available_rooms(String room_type) throws RemoteException;//returns the available rooms of a given type
 
-    /**
-     *
-     * @param room_type
-     * @param quest
-     * @return
-     * @throws RemoteException
-     */
-    public String book_room(String room_type,String quest) throws RemoteException;
+    
+    public String book_room(String room_type,String guest) throws RemoteException;//books a room of a given type for a guest
 
-    /**
-     *
-     * @return
-     * @throws RemoteException
-     */
-    public ArrayList<String> list_of_quests() throws RemoteException;
+   
+    public ArrayList<String> list_of_quests() throws RemoteException;//returns list of quests
 
-    /**
-     *
-     * @return
-     * @throws RemoteException
-     */
-    public String revenue() throws RemoteException;
+    public String revenue() throws RemoteException;//returns the total revenue of the hotel
 }
