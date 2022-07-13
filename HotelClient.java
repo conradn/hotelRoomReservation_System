@@ -18,41 +18,66 @@ import java.rmi.registry.Registry;
 public class HotelClient {
 
     public static void main(String[] args) throws RemoteException, NotBoundException, MalformedURLException {
+        //msg that shows up if no options are listed
+        String help_msg = "This is how you can use this command \n";
+        help_msg += "\t HotelClient list <server address> to list the available number of rooms in each price range \n";
+        help_msg += "\t HotelClient book <server address> <room type> <quest name> to book a room \n";
+        help_msg += "\t HotelClient quests <server address> to list the names of all the registered guests\n";
+        help_msg += "\t HotelClient revenue <server address> for revenue breakdown \n";
+
         try {
-            Registry reg = LocateRegistry.getRegistry("localhost", 1090);
-            RoomManager service = (RoomManager) reg.lookup("hotel");
 
-            //  booking a room
-            
-            System.out.println(service.book_room("0", "Samuel"));
-            System.out.println(service.book_room("0", "Linda"));
-            System.out.println(service.book_room("2", "Xtian"));
-            System.out.println(service.book_room("0", "Lorna"));
-            System.out.println(service.book_room("1", "Conrad"));
+            if (args.length == 0) {
 
-            //  list of quests
-            
-            service.list_of_quests().forEach(name -> {
-                System.out.println(name);
-            });
-            
-            
-             // print total revenue
-             
-             System.out.println(service.revenue());
-             
+                System.out.print(help_msg);
 
-            //  printing available rooms
-            
-            System.out.println(service.available_rooms("0"));
-            System.out.println(service.available_rooms("1"));
-            System.out.println(service.available_rooms("2"));
-            System.out.println(service.available_rooms("3"));
-            System.out.println(service.available_rooms("4"));
+            } //   list the available number of rooms in each price range 
+            else if (args[0].equals("list") & args[1].equals("localhost") & args.length == 2) {
+
+                Registry reg = LocateRegistry.getRegistry(args[1], 1090);
+                RoomManager service = (RoomManager) reg.lookup("hotel");
+
+                System.out.println(service.available_rooms("0"));
+                System.out.println(service.available_rooms("1"));
+                System.out.println(service.available_rooms("2"));
+                System.out.println(service.available_rooms("3"));
+                System.out.println(service.available_rooms("4"));
+
+            } //  booking a room
+            else if (args[0].equals("book") & args[1].equals("localhost") & args.length == 4) {
+
+                Registry reg = LocateRegistry.getRegistry(args[1], 1090);
+                RoomManager service = (RoomManager) reg.lookup("hotel");
+
+                System.out.println(service.book_room(args[2], args[3]));
+
+            } // list the names of all the registered guests
+            else if (args[0].equals("quests") & args[1].equals("localhost") & args.length == 2) {
+
+                Registry reg = LocateRegistry.getRegistry(args[1], 1090);
+                RoomManager service = (RoomManager) reg.lookup("hotel");
+
+                service.list_of_quests().forEach(name -> {
+                    System.out.println(name);
+                });
+
+            } // revenue breakdown
+            else if (args[0].equals("revenue") & args[1].equals("localhost") & args.length == 2) {
+                
+                Registry reg = LocateRegistry.getRegistry(args[1], 1090);
+                RoomManager service = (RoomManager) reg.lookup("hotel");
+
+                System.out.println(service.revenue());
+            } //if command is not supported
+            else {
+                System.out.println("Command is not supported");
+                System.out.print(help_msg);
+            }
 
         } catch (NotBoundException | RemoteException e) {
             System.out.println(e);
         }
 
     }
+
 }
