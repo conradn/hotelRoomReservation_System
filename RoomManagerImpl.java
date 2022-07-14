@@ -41,77 +41,77 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
 
 
    
-    //returns the available rooms of a given type
+    //returns the available rooms of a type 0
     public int getType_0_rooms() {
         return type_0_rooms;
     }
 
-    //
+    //reduces the number of available rooms of a type 0
     public void setType_0_rooms() {
         this.type_0_rooms = this.type_0_rooms - 1;
     }
 
-    
+    //returns the available rooms of a type 1
     public int getType_1_rooms() {
         return type_1_rooms;
     }
 
-    
+    //reduces the number of available rooms of a type 1
     public void setType_1_rooms() {
         this.type_1_rooms = this.type_1_rooms - 1;
     }
 
-    
+    //returns the available rooms of a type 2
     public int getType_2_rooms() {
         return type_2_rooms;
     }
 
-    
+    //reduces the number of available rooms of a type 2
     public void setType_2_rooms() {
         this.type_2_rooms = this.type_2_rooms - 1;
     }
 
-    
+    //returns the available rooms of a type 3
     public int getType_3_rooms() {
         return type_3_rooms;
     }
 
-    
+    //reduces the number of available rooms of a type 3
     public void setType_3_rooms() {
         this.type_3_rooms = this.type_3_rooms - 1;
     }
 
-    
+    //returns the available rooms of a type 4
     public int getType_4_rooms() {
         return type_4_rooms;
     }
 
-    
+    //reduces the number of available rooms of a type 4
     public void setType_4_rooms() {
         this.type_4_rooms = this.type_4_rooms - 1;
     }
 
-    
+    //returns the price of a type 0 room
     public long getType_0_rooms_price() {
         return type_0_rooms_price;
     }
 
-    
+    //returns the price of a type 1 room
     public long getType_1_rooms_price() {
         return type_1_rooms_price;
     }
 
-    
+    //returns the price of a type 2 room
     public long getType_2_rooms_price() {
         return type_2_rooms_price;
     }
 
-    
+    //returns the price of a type 3 room
     public long getType_3_rooms_price() {
         return type_3_rooms_price;
     }
 
-    
+    //returns the price of a type 4 room
     public long getType_4_rooms_price() {
         return type_4_rooms_price;
     }
@@ -143,27 +143,27 @@ public class RoomManagerImpl extends UnicastRemoteObject implements RoomManager 
     }
     
 
-    
+    //returns number of guests in a type 0 room
     public ArrayList<String> getType_0_rooms_guests() {
         return type_0_rooms_guests;
     }
 
-    
+    //returns number of guests in a type 1 room
     public ArrayList<String> getType_1_rooms_guests() {
         return type_1_rooms_guests;
     }
 
-    
+    //returns number of guests in a type 2 room
     public ArrayList<String> getType_2_rooms_guests() {
         return type_2_rooms_guests;
     }
 
-    
+    //returns number of guests in a type 3 room
     public ArrayList<String> getType_3_rooms_guests() {
         return type_3_rooms_guests;
     }
 
-    
+    //returns number of guests in a type 4 room
     public ArrayList<String> getType_4_rooms_guests() {
         return type_4_rooms_guests;
     }
