@@ -39,7 +39,24 @@ public class Client {
         System.out.println("Thank you. \n You booked " +a);
         
         int total=0;
-        String a;
+        if(a.equals("type 0")){
+            total=55000;
+        }
+        else if(a.equals("type 1")){
+            total=75000;
+        }
+        else if(a.equals("type 2")){
+            total=80000;
+        }
+        else if(a.equals("type 3")){
+            total=150000;
+        }
+        else if(a.equals("type 4")){
+            total=230000;
+        }
+        else{
+            System.out.println("Invalid room type");
+        }
         if(a == v){
             total =  v -1;
         }else if(a== w){
